@@ -1,0 +1,16 @@
+{
+    "name": "mini-skirt/tight-cli",
+    "type": "project",
+    "version": "1.0.0",
+    "description": "A simple PHP CLI project skeleton",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MiniSkirt\\": "skeleton/",
+            "App\\": "app/"
+        }
+    },
+    "require": {
+        "php": ">=8"
+    }
+}
