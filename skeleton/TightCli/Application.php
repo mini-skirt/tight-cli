@@ -9,7 +9,6 @@ class Application
     public function run($argv)
     {
         $r = $this->resolveArgs($argv);
-        var_dump($r);
         return $this->execute(
             $this->resolveCommand(
                 $r[0] ?? null
