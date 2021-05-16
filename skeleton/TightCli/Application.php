@@ -8,12 +8,12 @@ class Application
 
     public function run($argv)
     {
-        $r = $this->resolveArgs($argv);
+        $resolve = $this->resolveArgs($argv);
         return $this->execute(
             $this->resolveCommand(
-                $r[0] ?? null
+                $resolve->command ?? null
             ),
-            $r[1] ?? []
+            $resolve->arguments ?? []
         );
     }
 
@@ -25,12 +25,18 @@ class Application
         array_shift($arguments);
 
 
-        return [$command, $arguments];
+        return (object) [
+            'command'   => $command,
+            'arguments' => $arguments
+        ];
     }
 
     public function resolveNullArgs()
     {
-        return [];
+        return (object) [
+            'command'   => null,
+            'arguments' => []
+        ];
     }
 
     public function resolveCommand($command)
